@@ -17,4 +17,6 @@ public class WechatConstant {
      * 通讯录 corpsecret
      */
     public static final String ADDRESSLIST_CORP_SECRET = "FeRPGfjboDtbjh9XpIZnHm8OZdKBNT9DO_eDz0O4CCw";
+
+    // todo : 其他应用的 corpsecret
 }

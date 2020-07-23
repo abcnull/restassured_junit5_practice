@@ -1,6 +1,7 @@
 package com.wechat.tmp;
 
 import com.sun.org.glassfish.gmbal.Description;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 
@@ -15,17 +16,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestDemo {
     public static String accessToken;
+
     @BeforeAll
     public static void beforeAll() {
         accessToken = given().when()
-                            .param("corpid", "wwd2f79f6df4aa2617")
-                            .param("corpsecret", "FeRPGfjboDtbjh9XpIZnHm8OZdKBNT9DO_eDz0O4CCw")
-                            .get(" https://qyapi.weixin.qq.com/cgi-bin/gettoken")
-                        .then()
-                            .log().body()
-                        .extract()
-                            .response()
-                        .path("access_token");
+                .param("corpid", "wwd2f79f6df4aa2617")
+                .param("corpsecret", "FeRPGfjboDtbjh9XpIZnHm8OZdKBNT9DO_eDz0O4CCw")
+                .get(" https://qyapi.weixin.qq.com/cgi-bin/gettoken")
+                .then()
+                .log().body()
+                .extract()
+                .response()
+                .path("access_token");
     }
 
     @Test
@@ -43,10 +45,11 @@ public class TestDemo {
                 .contentType("application/json")
                 .body(body)
                 .post("https://qyapi.weixin.qq.com/cgi-bin/department/create?access_token=" + accessToken)
-        .then()
+                .then()
                 .log().body()
-        .extract()
+                .extract()
                 .response();
         assertEquals("0", response.path("errorcode").toString());
+
     }
 }

@@ -3,6 +3,7 @@ package com.wechat.moduleobject;
 import com.wechat.basemodule.BaseModule;
 import com.wechat.constant.WechatConstant;
 import io.restassured.response.Response;
+import lombok.extern.slf4j.Slf4j;
 
 import static io.restassured.RestAssured.given;
 
@@ -13,6 +14,7 @@ import static io.restassured.RestAssured.given;
  * @version 1.0.0
  * @date 2020/7/22 18:06
  */
+@Slf4j
 public class MemberModule extends BaseModule {
     /**
      * access_token
@@ -50,6 +52,7 @@ public class MemberModule extends BaseModule {
      * @return Response
      */
     public Response createMember() {
+        log.info("创建成员");
         String requestBody = "    {\n" +
                 "        \"userid\": \"zhangsan\",\n" +
                 "        \"name\": \"张三\",\n" +
@@ -131,6 +134,7 @@ public class MemberModule extends BaseModule {
      * 更新成员
      */
     public void updateMember() {
+        log.info("更新成员");
         // todo : 更新成员
     }
 
@@ -138,6 +142,7 @@ public class MemberModule extends BaseModule {
      * 删除成员
      */
     public void deleteMember() {
+        log.info("删除成员");
         // todo : 删除成员
     }
 }
