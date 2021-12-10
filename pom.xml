@@ -57,7 +57,7 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.11.1</version>
+            <version>2.15.0</version>
         </dependency>
         <!--slf4j与log4j2的桥接包log4j-slf4j-impl,作用是使用slf4j的api，但是底层实现是基于log4j2-->
         <dependency>
